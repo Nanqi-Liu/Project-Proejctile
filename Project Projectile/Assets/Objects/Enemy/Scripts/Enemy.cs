@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
         if(other.tag == "Projectile")
         {
             // Hit by projectile
-            Debug.Log("Enemy " + gameObject.name + " at " + transform.position + " got hit by " + other.name);
+            // Debug.Log("Enemy " + gameObject.name + " at " + transform.position + " got hit by " + other.name + " at " + other.transform.position);
             Destroy(other.gameObject);
         }
     }

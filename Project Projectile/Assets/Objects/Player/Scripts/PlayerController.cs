@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] private LayerMask _floorLayerMask;
 
+    [SerializeField] private PlayerProjectileStats _stats;
     private Vector3 inputDirection;
     private Quaternion inputRotation;
     private Vector3 mousePosition;
@@ -86,11 +87,14 @@ public class PlayerController : MonoBehaviour
             // Debug.Log(mousePosition);
         }
         
-        // if (x != 0 || z != 0)
-        // {
-        //     float angle = Mathf.Atan2(x, z) * Mathf.Rad2Deg;
-        //     inputRotation = Quaternion.Euler(0, angle, 0);
-        // }
+        
+        // Shooting projectile related
+        if(Input.GetMouseButtonDown(0))
+        {
+            // Shoots an arrow
+            ProjectileManager.instance.CreateMultiProjectile(transform.position, transform.forward, _stats, _stats._projectileCount, _stats._multiProjectileDegree);
+            // _stats._speed += 1;
+        }
     }
 
     private void Rotate()

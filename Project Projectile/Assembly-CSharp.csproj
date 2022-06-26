@@ -39,9 +39,10 @@
      <Compile Include="Assets\Objects\Camera\Scripts\TopDownCamera.cs" />
      <Compile Include="Assets\Objects\Projectile\Scripts\ProjectileManager.cs" />
      <Compile Include="Assets\Objects\Player\Scripts\PlayerController.cs" />
-     <Compile Include="Assets\Objects\Projectile\Scripts\Projectile.cs" />
-     <Compile Include="Assets\Objects\Projectile\ProjectileStats.cs" />
      <Compile Include="Assets\Objects\Enemy\Scripts\Enemy.cs" />
+     <Compile Include="Assets\Objects\Projectile\ProjectileStats.cs" />
+     <Compile Include="Assets\Objects\Projectile\Scripts\Projectile.cs" />
+     <Compile Include="Assets\PlayerProjectileStats.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.36f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
