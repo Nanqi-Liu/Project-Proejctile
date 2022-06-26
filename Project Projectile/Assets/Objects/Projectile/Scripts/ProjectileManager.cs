@@ -10,8 +10,6 @@ public class ProjectileManager : MonoBehaviour
 
     [SerializeField] private LayerMask _floorLayerMask;
     [SerializeField] private GameObject _projectileObject;
-
-    [SerializeField] private ProjectileStats stats;
     #endregion
 
     #region Main Methods

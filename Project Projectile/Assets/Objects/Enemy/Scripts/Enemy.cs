@@ -31,7 +31,8 @@ public class Enemy : MonoBehaviour
         {
             // Hit by projectile
             // Debug.Log("Enemy " + gameObject.name + " at " + transform.position + " got hit by " + other.name + " at " + other.transform.position);
-            Destroy(other.gameObject);
+            Projectile proj = other.gameObject.GetComponent<Projectile>();
+            proj.hit(this);
         }
     }
     #endregion

@@ -11,6 +11,15 @@ public class Projectile : MonoBehaviour
     public float currSpeed;
 
     private ProjectileStats stats;
+
+    // Projectile effects:
+    // SubProjectiles effect order (from POE):
+    // 1. Split
+    // 2. Pierce
+    // 3. Chain
+    // 4. Return
+    // *5. Bounce
+    // 6. Explosion
     #endregion
 
     #region Main Methods
@@ -57,12 +66,43 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void hit(Enemy enemy)
+    {
+        // Split (might need to destory & + new proj)
+        // Pierce (don't destory)
+        if (ProbabilityCheck(stats._pierceCount, stats._pierceMax, stats._pierceProb))
+        {
+            // Pierce Success
+            stats._pierceCount += 1;
+            return;
+        }
+        // Chain (don't destory)
+        // Return (don't destory)
+        Destroy(gameObject);
+    }
     #endregion
 
     #region Helper Methods
     void Move()
     {   
         _rb.MovePosition(transform.position + transform.forward * stats._speed * Time.deltaTime);
+    }
+
+    bool ProbabilityCheck(int count, int max, float prob)
+    {
+        if(prob <= 0f) {
+            return false;
+        }
+
+        if (count < max)
+        {
+            if(prob >= 1f || Random.Range(0.0f, 1.0f) <= prob)
+            {
+                return true;
+            } 
+        }  
+
+        return false;
     }
 
     public void SetStats(ProjectileStats newStats)
